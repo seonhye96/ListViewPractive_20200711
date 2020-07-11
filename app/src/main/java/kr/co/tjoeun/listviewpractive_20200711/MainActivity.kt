@@ -18,8 +18,6 @@ class MainActivity : BaseActivity() {
         setupEvents()
         setValues()
 
-        setContentView(R.layout.activity_main)
-
         mRoomAdapter = RoomAdapter(this, R.layout.room_list_item, mRoomList)
     }
 

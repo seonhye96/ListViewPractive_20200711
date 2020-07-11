@@ -21,7 +21,7 @@ class RoomAdapter(val mContext:Context, val resId:Int, val mList:List<Room>) : A
         }
 
         val row = tempRow!!
-
+//------------------------- 실데이터 입력
         val priceTxt = row.findViewById<TextView>(R.id.priceTxt) // row -- roomListItem을 가지고있음
         val addressAndFloorTxt = row.findViewById<TextView>(R.id.addressAndFloorTxt)
         val descriptionTxt = row.findViewById<TextView>(R.id.descriptionTxt)
@@ -29,8 +29,9 @@ class RoomAdapter(val mContext:Context, val resId:Int, val mList:List<Room>) : A
         val data = mList[position] // mList 위치에 맞는 걸 가져다줘
 
         priceTxt.text = data.price.toString()
-        addressAndFloorTxt.text = data.address
+        addressAndFloorTxt.text = "${data.address}, ${data.getFomatedFloor()}"
         descriptionTxt.text = data.description
+//------------------------- 
 
         return row
     }
