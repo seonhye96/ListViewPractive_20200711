@@ -2,21 +2,30 @@ package kr.co.tjoeun.listviewpractive_20200711
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
+import kotlinx.android.synthetic.main.activity_main.*
+import kr.co.tjoeun.listviewpractive_20200711.adapters.RoomAdapter
 import kr.co.tjoeun.listviewpractive_20200711.datas.Room
 
 class MainActivity : BaseActivity() {
 
     val mRoomList = ArrayList<Room>()
+    lateinit var mRoomAdapter: RoomAdapter // 1.종이 만들었다!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupEvents()
         setValues()
+
+        setContentView(R.layout.activity_main)
+
+        mRoomAdapter = RoomAdapter(this, R.layout.room_list_item, mRoomList)
     }
 
 //    이벤트 처리 코드
     override fun setupEvents() {
+
 
     }
 
@@ -34,6 +43,10 @@ class MainActivity : BaseActivity() {
         mRoomList.add(Room(16000, "서울시 강서구", 2, "서울시 강서구의 2층 방입니다."))
         mRoomList.add(Room(8900, "서울시 금천구", 13, "서울시 금천구의 13층 방입니다."))
 
+        mRoomAdapter = RoomAdapter(mContext, R.layout.room_list_item, mRoomList) // 2.도장을 찍을거다!  여기에다가 R.레이아웃에 있는 room_dfd에  mRoomList 값을 넣어라
+
+        roomListView.adapter = mRoomAdapter // 3. 2에서 만든 어댑터 변수를 적용
 
     }
+
 }
