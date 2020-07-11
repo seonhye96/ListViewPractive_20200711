@@ -28,8 +28,8 @@ class RoomAdapter(val mContext:Context, val resId:Int, val mList:List<Room>) : A
 
         val data = mList[position] // mList 위치에 맞는 걸 가져다줘
 
-        priceTxt.text = data.price.toString()
-        addressAndFloorTxt.text = "${data.address}, ${data.getFomatedFloor()}"
+        priceTxt.text = data.getFormattedPrice()
+        addressAndFloorTxt.text = "${data.address}, ${data.getFormattedFloor()}"
         descriptionTxt.text = data.description
 //------------------------- 
 
