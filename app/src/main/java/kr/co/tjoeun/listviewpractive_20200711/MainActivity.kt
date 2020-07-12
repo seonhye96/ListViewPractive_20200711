@@ -32,6 +32,7 @@ class MainActivity : BaseActivity() {
 
 //            상세화면으로 진입
             val myIntent = Intent(mContext, ViewRoomDetailActivity::class.java)
+            myIntent.putExtra("room", clickedRoom) // room이란걸로 다 넘겨주면 안되나?
             startActivity(myIntent)
 
         }
