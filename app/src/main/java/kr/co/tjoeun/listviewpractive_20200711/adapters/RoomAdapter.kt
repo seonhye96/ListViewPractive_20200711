@@ -20,7 +20,7 @@ class RoomAdapter(val mContext:Context, val resId:Int, val mList:List<Room>) : A
             tempRow = inf.inflate(R.layout.room_list_item, null)
         }
 
-        val row = tempRow!!
+        val row = tempRow!!  // NULL일 가능성이 없다!
 //------------------------- 실데이터 입력
         val priceTxt = row.findViewById<TextView>(R.id.priceTxt) // row -- roomListItem을 가지고있음
         val addressAndFloorTxt = row.findViewById<TextView>(R.id.addressAndFloorTxt)
