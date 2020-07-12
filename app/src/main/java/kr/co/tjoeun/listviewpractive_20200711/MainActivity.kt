@@ -1,5 +1,6 @@
 package kr.co.tjoeun.listviewpractive_20200711
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -24,6 +25,16 @@ class MainActivity : BaseActivity() {
 //    이벤트 처리 코드
     override fun setupEvents() {
 
+        roomListView.setOnItemClickListener { parent, view, position, id ->
+
+//            어떤 방을 선택했는지  mRoomList에 있는 것에서 position 위치를 가져와라
+            val clickedRoom = mRoomList[position]
+
+//            상세화면으로 진입
+            val myIntent = Intent(mContext, ViewRoomDetailActivity::class.java)
+            startActivity(myIntent)
+
+        }
 
     }
 
